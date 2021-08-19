@@ -1,0 +1,4 @@
+.horizontal-line {
+  max-width: calc(100% - 400px);
+  border: 1px solid #545454;
+}
