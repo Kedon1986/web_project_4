@@ -17,6 +17,11 @@
 @import url(../blocks/button/__avatar/button-edit__avatar.css);
 @import url(../blocks/button-add/button-add.css);
 @import url(../blocks/button-add/__avatar/button-add__avatar.css);
+/*profile*/
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/card/__icon/card__icon.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__title/card__title.css);
 
 
 
