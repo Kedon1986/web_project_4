@@ -1,9 +1,7 @@
 .card__bottom {
   padding: 25px 15px 31px 21px;
   margin: 0;
-  display: flex;
   background-color: white;
   max-width: 282px;
-  justify-content: space-between;
   border-radius: 0 0 10px 10px;
 }
