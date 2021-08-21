@@ -5,7 +5,7 @@ const profileAboutMe = document.querySelector('.profile__about-me');
 
 /*buttons*/
 let edit = document.querySelector(".button-edit");
-let close = document.querySelector(".popup__close")
+let closed = document.querySelector(".popup__close");
 
 /*popup*/
 let popup = document.querySelector('.popup');
@@ -19,7 +19,7 @@ subtitleInput.value = profileAboutMe.textContent;
 
 
 /*functions*/
-function showPopup() {
+function togglePopup() {
   popup.classList.toggle('popup_opened');
 }
 
@@ -27,10 +27,21 @@ function closePopup() {
   popup.classList.toggle('popup_opened');
 }
 
+function updateProfile(event) {
+
+  event.preventDefault();
+
+  profiletName.textContent = titleInput.value;
+  profileAboutMe.textContent = subtitleInput.value;
+  
+  togglePopup();
+}
 
 
-/*actions*/
-edit.addEventListener("click", showPopup); 
-close.addEventListener("click", closePopup)
+
+/*event listners*/
+form.addEventListener('submit', updateProfile, false);
+edit.addEventListener("click", togglePopup); 
+closed.addEventListener("click", closePopup);
 
 
