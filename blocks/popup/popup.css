@@ -1,0 +1,8 @@
+.popup {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 430px;
+  background: white;
+  border-radius: 10px;
+  position: relative;
+}

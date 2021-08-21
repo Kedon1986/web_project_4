@@ -19,12 +19,12 @@
           <img class="profile__avatar" src="./images/avatar.png"> 
           <div class="profile__info">
             <p class="profile__name">Jacques Cousteau</p>
-            <button class="button-edit">
+            <button type="button"  class="button-edit">
               <img class="button-edit__avatar" src="./images/button-edit.svg">
             </button>
             <p class="profile__tag">Explorer</p>
           </div>
-          <button class="button-add">
+          <button type="button" class="button-add">
             <img class="button-add__avatar" src="./images/button-add.svg">
           </button> 
         </section> 
@@ -84,6 +84,17 @@
             </div>
           </div>
         </section> 
+        <section class="popup">
+          <div class="popup__container">
+            <button  class="popup__close" type="button"><img src="./images/close-icon(1).png" alt=""></button>
+            <form class="popup__form" name="register">
+              <h3 class="popup__title">Edit Profile</h3>
+              <input class="popup__input" type="text" name="name" placeholder="Name">
+              <input class="popup__input" type="text" name="title" placeholder="Title">
+              <button class="popup__submit" type="submit"><span class="popup__text">Save</span></button>
+            </form>
+          </div> 
+        </section>
       </main>
     </div>
   </div>
