@@ -38,6 +38,9 @@
 @import url(../blocks/popup/__about-me/popup__about-me.css);
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/__text/popup__text.css);
+/*footer*/
+@import url(../blocks/footer/footer.css);
+
 
 
 
