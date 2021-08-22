@@ -5,3 +5,9 @@
   font-size: 18px;
   line-height: 1;
 }
+
+@media screen and (max-width: 898px){
+  .profile__about-me {
+    text-align: center;
+  }
+}

@@ -7,3 +7,12 @@
   grid-template-rows: repeat(2 , auto);
   gap: 17px 20px;
 }
+
+@media screen and (max-width: 1024px){
+  .elements {
+    max-width: 624px;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-template-rows: repeat(3 , auto);
+    gap: 15px 18px;
+  }
+}

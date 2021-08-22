@@ -1,7 +1,17 @@
 .profile__info {
   margin: 0 0 0 30px;
   padding: 0;
-  max-width: 760px;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  grid-template-rows: repeat(2,auto);
+}
+
+@media screen and (max-width: 898px){
+  .profile__info {
+    font-size: 32px;
+    line-height: 1.14;
+    margin: 0;
+  }
 }

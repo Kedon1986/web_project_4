@@ -4,3 +4,11 @@
   margin: 40px auto 0;
   display: flex;
 }
+
+@media screen and (max-width: 898px){
+  .profile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
