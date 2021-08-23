@@ -1,4 +1,20 @@
 .horizontal-line {
   max-width: calc(100% - 400px);
   border: 1px solid #545454;
+  opacity: 0.7;
+}
+
+
+@media screen and (max-width: 768px){
+  .horizontal-line {
+    max-width: 370px;
+  }
+}
+
+
+
+@media screen and (max-width: 320px){
+  .horizontal-line {
+    max-width: 320px;
+  }
 }

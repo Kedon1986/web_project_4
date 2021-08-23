@@ -1,4 +1,13 @@
-.header__title {
+.header__image {
   padding: 0;
   margin: 0;
+  height: 33px;
+  width: 173px;
+}
+
+@media screen and (max-width: 320px){
+  .place__image {
+    height: 24px;
+    width: 126px;
+  }
 }

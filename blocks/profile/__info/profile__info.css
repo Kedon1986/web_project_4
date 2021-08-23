@@ -10,8 +10,13 @@
 
 @media screen and (max-width: 898px){
   .profile__info {
-    font-size: 32px;
-    line-height: 1.14;
+
+  }
+}
+
+@media screen and (max-width: 320px){
+  .profile__info {
+    text-align: center;
     margin: 0;
   }
 }
