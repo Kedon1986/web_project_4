@@ -29,7 +29,7 @@
 
 @media screen and (max-width: 898px){
   .button-add {
-    margin: 35px 0 0 ;
+    margin: 35px 0 0;
     height: 40px;
     width: 120px;
   }
@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 640px){
   .button-add {
-    margin: 35px 0 0 ;
+    margin: 35px 0 0;
     height: 50px;
     width: 282px;
   }
@@ -45,7 +45,7 @@
 
 @media screen and (max-width: 320px){
   .button-add {
-    margin: 35px 0 0 ;
+    margin: 35px 0 0;
     height: 50px;
     width: 282px;
   }
