@@ -9,8 +9,8 @@ let closed = document.querySelector(".popup__close");
 /*popup*/
 let popup = document.querySelector('.popup');
 let form = document.querySelector('.popup__form');
-let titleInput = document.querySelector('.popup__name');
-let subtitleInput = document.querySelector('.popup__about-me');
+let titleInput = document.querySelector('#popup-name');
+let subtitleInput = document.querySelector('#popup-about');
 
 
 /*functions*/
