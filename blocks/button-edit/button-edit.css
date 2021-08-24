@@ -10,10 +10,11 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .button-edit:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 

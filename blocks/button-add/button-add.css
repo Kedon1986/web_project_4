@@ -4,19 +4,21 @@
   height: 50px;
   width: 150px;
   background: #000;
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   box-sizing: border-box;
   transition: opacity 0.1s ease-in;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 
 
 .button-add:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 1024px){
@@ -30,24 +32,15 @@
 @media screen and (max-width: 898px){
   .button-add {
     margin: 35px 0 0;
-    height: 40px;
-    width: 120px;
   }
 }
 
 @media screen and (max-width: 640px){
   .button-add {
-    margin: 35px 0 0;
     height: 50px;
     width: 282px;
   }
 }
 
-@media screen and (max-width: 320px){
-  .button-add {
-    margin: 35px 0 0;
-    height: 50px;
-    width: 282px;
-  }
-}
+
 

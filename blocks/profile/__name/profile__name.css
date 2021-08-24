@@ -9,14 +9,12 @@
 @media screen and (max-width: 898px){
   .profile__name {
     font-size: 32px;
-    line-height: 1.14;
   }
 }
 
 @media screen and (max-width: 768px){
   .profile__name {
     font-size: 22px;
-    line-height: 1.14;
   }
 }
 
@@ -24,7 +22,5 @@
 @media screen and (max-width: 320px){
   .profile__name {
     margin: 0 0 14px;
-    font-size: 22px;
-    line-height: 1.22;
   }
 }

@@ -14,7 +14,6 @@
 
 @media screen and (max-width: 320px){
   .profile__about-me {
-    font-weight: normal;
     font-size: 14px;
     line-height: 1.21;
   }

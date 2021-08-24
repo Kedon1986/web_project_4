@@ -1,4 +1,3 @@
-
 /*header*/
 const profiletName = document.querySelector('.profile__name');
 const profileAboutMe = document.querySelector('.profile__about-me');
@@ -12,15 +11,13 @@ let popup = document.querySelector('.popup');
 let form = document.querySelector('.popup__form');
 let titleInput = document.querySelector('.popup__name');
 let subtitleInput = document.querySelector('.popup__about-me');
-titleInput.value = profiletName.textContent;
-subtitleInput.value = profileAboutMe.textContent;
-
-
 
 
 /*functions*/
-function togglePopup() {
+function openPopup() {
   popup.classList.toggle('popup_opened');
+  titleInput.value = profiletName.textContent;
+  subtitleInput.value = profileAboutMe.textContent;
 }
 
 function closePopup() {
@@ -34,14 +31,12 @@ function updateProfile(event) {
   profiletName.textContent = titleInput.value;
   profileAboutMe.textContent = subtitleInput.value;
   
-  togglePopup();
+  closePopup();
 }
-
-
 
 /*event listners*/
 form.addEventListener('submit', updateProfile, false);
-edit.addEventListener("click", togglePopup); 
+edit.addEventListener("click", openPopup); 
 closed.addEventListener("click", closePopup);
 
 
