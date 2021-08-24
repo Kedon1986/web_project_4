@@ -6,8 +6,9 @@
 }
 
 @media screen and (max-width: 320px){
-  .place__image {
+  .header__image {
     height: 24px;
     width: 126px;
+    margin: 0 0 0 27px;
   }
 }
