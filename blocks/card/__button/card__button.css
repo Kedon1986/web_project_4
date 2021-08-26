@@ -11,3 +11,7 @@
   background: white;
   cursor: pointer;
 }
+
+.button-add:hover {
+  opacity: 0.6;
+}

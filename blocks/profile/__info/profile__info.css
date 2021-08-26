@@ -1,21 +1,21 @@
 .profile__info {
   margin: 0 0 0 30px;
   padding: 0;
-  /* display: flex;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(2,auto);
   grid-template-rows: repeat(2,auto);
+  max-width: 415px;
 }
 
-@media screen and (max-width: 898px){
+@media screen and (max-width: 764px){
   .profile__info {
-
+    min-width: 217px;
   }
 }
 
 @media screen and (max-width: 320px){
   .profile__info {
+    max-width: 282px;
     text-align: center;
     margin: 0;
   }
