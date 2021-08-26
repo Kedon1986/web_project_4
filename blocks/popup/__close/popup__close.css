@@ -7,7 +7,7 @@
   width: 40px;
   top: -32px;
   right: -32px;
-  background: black;
+  background-color: transparent;
   z-index: -1;
   display: flex;
   justify-content: center;
