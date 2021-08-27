@@ -1,5 +1,12 @@
 .popup__close-icon {
   padding: 0;
   margin: 0;
-  width: 100%;
+  width: 56px;
+  height: 56px;
 }
+
+@media screen and (max-width: 320px){
+  .popup__close-icon {
+    width: 36px;
+    height: 36px;
+  }
