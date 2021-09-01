@@ -81,10 +81,10 @@ const initialCards = [
    const cardTemplate = document.querySelector('#card').content; // Template
    const card = cardTemplate.querySelector('.card').cloneNode(true);
    const cardContainer = document.querySelector('.elements'); // card container
+   
    const cardImage = card.querySelector('.card__image');
    const cardTitle =  card.querySelector('.card__title');
   
-   
    cardImage.src = initialCards[i].src;// card image 
    cardTitle.textContent = initialCards[i].title;// card title
 
