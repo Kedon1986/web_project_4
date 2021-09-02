@@ -1,22 +1,47 @@
 /*header*/
-const profilettitle = document.querySelector('.profile__title');
+const profiletName = document.querySelector('.profile__name');
 const profileAboutMe = document.querySelector('.profile__about-me');
 
 /*buttons*/
 let edit = document.querySelector(".button-edit");
 let closed = document.querySelector(".popup__close");
+let add = document.querySelector(".button-add");
+let closeCard = document.querySelector(".popup__close_theme_add");
+
 
 /*popup*/
 let popup = document.querySelector('.popup');
+let cardPopup = document.querySelector('.popup_theme_add');
 let form = document.querySelector('.popup__form');
-let titleInput = document.querySelector('#popup-title');
+let titleInput = document.querySelector('#popup-name');
 let subtitleInput = document.querySelector('#popup-about');
 
 
+
 /*functions*/
+
+/*Card Popup*/
+function openCardPopup() {
+  cardPopup.classList.toggle('popup_opened');
+}
+
+function closeCardPopup() {
+  cardPopup.classList.toggle('popup_opened');
+}
+
+
+function updateCard(event) {
+
+  event.preventDefault();
+  
+  closeCardPopup();
+}
+
+
+/*Profile Popup*/
 function openPopup() {
   popup.classList.toggle('popup_opened');
-  titleInput.value = profilettitle.textContent;
+  titleInput.value = profiletName.textContent;
   subtitleInput.value = profileAboutMe.textContent;
 }
 
@@ -28,7 +53,7 @@ function updateProfile(event) {
 
   event.preventDefault();
 
-  profilettitle.textContent = titleInput.value;
+  profiletName.textContent = titleInput.value;
   profileAboutMe.textContent = subtitleInput.value;
   
   closePopup();
@@ -38,11 +63,13 @@ function updateProfile(event) {
 form.addEventListener('submit', updateProfile, false);
 edit.addEventListener("click", openPopup); 
 closed.addEventListener("click", closePopup);
+add.addEventListener("click", openCardPopup); 
+closeCard.addEventListener("click", closeCardPopup);
 
 
-      /*Card Template*/
 
 
+/*Card Template*/
 
 /*Card Array*/
 
@@ -81,10 +108,10 @@ const initialCards = [
    const cardTemplate = document.querySelector('#card').content; // Template
    const card = cardTemplate.querySelector('.card').cloneNode(true);
    const cardContainer = document.querySelector('.elements'); // card container
+   
    const cardImage = card.querySelector('.card__image');
    const cardTitle =  card.querySelector('.card__title');
   
-   
    cardImage.src = initialCards[i].src;// card image 
    cardTitle.textContent = initialCards[i].title;// card title
 
