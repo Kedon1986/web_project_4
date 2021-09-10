@@ -151,7 +151,17 @@ const initialCards = [
  createNewCard()
 
 
- //create card form
+ function changeIconColor () {
+   let changeIcon = document.querySelector('.card__button').children;
+   changeIcon.style.background = 'black';
+ }
+
+
+
+ function liked () {
+   let element = document.querySelector('.card__icon')
+   element.classList.toggle('liked')
+ }
 
  
   

@@ -8,10 +8,11 @@
   align-content: center;
   align-items: center;
   border: none;
-  background: white;
   cursor: pointer;
+  background: white;
 }
 
 .card__button:hover {
   opacity: 0.5;
 }
+

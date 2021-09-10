@@ -1,0 +1,11 @@
+.card__icon-delete {
+  height: 4.49px;
+  width: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.card__icon-delete:nth-of-type(2) {
+  height: 13.51px;
+  width: 15.44px;
+}
