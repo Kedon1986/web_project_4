@@ -8,6 +8,9 @@ let add = document.querySelector(".button-add");
 let closeCard = document.querySelector(".popup__close_theme_add");
 
 
+
+
+
 /*popup*/
 let popup = document.querySelector('.popup');
 let cardPopup = document.querySelector('.popup_theme_add');
@@ -15,6 +18,8 @@ let form = document.querySelector('.popup__form');
 let titleInput = document.querySelector('#popup-name');
 let subtitleInput = document.querySelector('#popup-about');
 let cardForm = document.querySelector('.popup__form_theme_add');
+
+
 
 
 
@@ -73,6 +78,13 @@ function addCard(event) {
 }
 
 
+
+function removeCard() {
+  let card = document.querySelector(".card");
+  card.remove();
+}
+
+
 function updateProfile(event) {
 
   event.preventDefault();
@@ -90,6 +102,9 @@ closed.addEventListener("click", closePopup);
 add.addEventListener("click", openCardPopup); 
 closeCard.addEventListener("click", closeCardPopup);
 cardForm.addEventListener('submit', addCard, false);
+
+
+
 
 
 
@@ -151,17 +166,17 @@ const initialCards = [
  createNewCard()
 
 
- function changeIconColor () {
-   let changeIcon = document.querySelector('.card__button').children;
-   changeIcon.style.background = 'black';
- }
+//  function changeIconColor () {
+//    let changeIcon = document.querySelector('.card__button').children;
+//    changeIcon.style.background = 'black';
+//  }
 
 
 
- function liked () {
-   let element = document.querySelector('.card__icon')
-   element.classList.toggle('liked')
- }
+//  function liked () {
+//    let element = document.querySelector('.card__icon')
+//    element.classList.toggle('liked')
+//  }
 
  
   
