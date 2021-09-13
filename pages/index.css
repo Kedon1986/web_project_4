@@ -22,7 +22,7 @@
 @import url(../blocks/card/__content/card__content.css);
 @import url(../blocks/card/__button/card__button.css);
 @import url(../blocks/card/__title/card__title.css);
-@import url(../blocks/card/_liked/card__button_liked.css);
+@import url(../blocks/card/__button/_liked/card__button_liked.css);
 @import url(../blocks/card/__delete-button/card__delete-button.css);
 @import url(../blocks/card/__icon-delete/card__icon-delete.css);
 /*popup*/

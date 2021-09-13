@@ -6,7 +6,7 @@ const profileAboutMe = document.querySelector('.profile__about-me');
 let cardTemplate = document.querySelector('#card').content; // Template
 let card = cardTemplate.querySelector('.card').cloneNode(true);
 let cardContainer = document.querySelector('.elements'); // card container
-let like = card.querySelector('.card__button');
+
 
 
 
@@ -141,7 +141,11 @@ let createNewCard = function () {
    
     cardImage.src = initialCards[i].src;// card image 
     cardTitle.textContent = initialCards[i].title;// card title
-
+    let like = card.querySelector('.card__button');
+    like.addEventListener('click',function liked() {
+      like.classList.toggle('card__button_liked')
+    }
+)
     cardContainer.append(card);
   }
  }
@@ -151,10 +155,7 @@ let createNewCard = function () {
 
 /*like button*/
 
-function liked() {
-  like.classList.toggle('card__button_liked')
-  console.log(like)
-}
+
 
 
 
