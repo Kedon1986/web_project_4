@@ -8,13 +8,10 @@
   align-content: center;
   align-items: center;
   border: none;
-  cursor: pointer;
   background: url('../../../images/heartVector.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
+  background-color: transparent;
   cursor: pointer;
   overflow: hidden;
   outline: none;
