@@ -1,14 +1,17 @@
 .popup__container_type_image-modal {
-  width: 433px;
-  height: 540px;
+  max-height: 75vh;
+  max-width: 75vw;
+  height: auto;
+  width: auto;
   padding: 0;
   margin: 0;
   background: none;
+  display: flex;
 }
 
-@media screen and (max-width: 577px){
+/* @media screen and (max-width: 577px){
   .popup__container_type_image-modal {
     width: 240px;
     height: 299px;
   }
-}
+} */
