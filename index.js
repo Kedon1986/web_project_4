@@ -14,6 +14,7 @@ let closed = document.querySelector(".popup__close");
 let add = document.querySelector(".button-add");
 let closeCard = document.querySelector(".popup__close_theme_add");
 
+
 /*popup*/
 let popup = document.querySelector('.popup');
 let cardPopup = document.querySelector('.popup_theme_add');
@@ -23,7 +24,7 @@ let subtitleInput = document.querySelector('#popup-about');
 let cardForm = document.querySelector('.popup__form_theme_add');
 let imagePopup = document.querySelector('.popup_type_image-modal');
 let popupImage = document.querySelector('.popup__image');
-
+let closeImageModal = document.querySelector('.popup__close_type_image-modal')
 
 
 /*Card Array*/
@@ -92,8 +93,10 @@ function addCard(event) {
   event.preventDefault();
 
   const cardTemplate = document.querySelector('#card').content; // Template
-  let card = cardTemplate.querySelector('.card').cloneNode(true);
-  let cardContainer = document.querySelector('.elements'); // card container
+  const card = cardTemplate.querySelector('.card').cloneNode(true);
+  const cardContainer = document.querySelector('.elements'); // card container
+  const modalImageTitle = document.querySelector('.popup__title_type_image-modal')
+  let imagePopup = document.querySelector('.popup_type_image-modal');
 
   let cardImage = card.querySelector('.card__image');
   let cardTitle =  card.querySelector('.card__title');
@@ -109,16 +112,18 @@ function addCard(event) {
   cardTitleInput.value = '';
   cardImageInput.value = '';
 
-let like = card.querySelector('.card__button'); 
+let like = card.querySelector('.card__button');  // like button
   like.addEventListener('click',function liked(e) {
     e.target.classList.toggle('card__button_liked')
 })
 
 
-cardImage.addEventListener('click',function openImagePopup () {
+cardImage.addEventListener('click',function openImagePopup () { 
   imagePopup.classList.toggle('popup_opened')
+  modalImageTitle.textContent = cardTitle.textContent
   popupImage.src = cardImage.src
 });
+
 
   closeCardPopup();
 }
@@ -149,26 +154,29 @@ let createNewCard = function () {
     const cardTemplate = document.querySelector('#card').content; // Template
     const card = cardTemplate.querySelector('.card').cloneNode(true);// card
     const cardContainer = document.querySelector('.elements'); // card container
-    
+
+
     const cardImage = card.querySelector('.card__image');
     const cardTitle =  card.querySelector('.card__title');
-   
+
+    const modalImageTitle = document.querySelector('.popup__title_type_image-modal')
+
     cardImage.src = initialCards[i].src;// card image 
     cardTitle.textContent = initialCards[i].title; // card title
     let like = card.querySelector('.card__button'); //card button
-    like.addEventListener('click',function liked(e) {
+    like.addEventListener('click',function liked(e) { // like button
       e.target.classList.toggle('card__button_liked')
     }
+    
 )
 
-cardImage.addEventListener('click',function openImagePopup () {
+cardImage.addEventListener('click',function openImagePopup () { // open image Modal
   popupImage.src = cardImage.src
   imagePopup.classList.toggle('popup_opened')
+  modalImageTitle.textContent = cardTitle.textContent
 })
 
-
-
-    cardContainer.append(card);
+ cardContainer.append(card);
   }
  }
 
@@ -181,5 +189,6 @@ closed.addEventListener("click", closePopup);
 add.addEventListener("click", openCardPopup); 
 closeCard.addEventListener("click", closeCardPopup);
 cardForm.addEventListener('submit', addCard, false);
-// imagePopup.addEventListener('click',openImagePopup)
-
+closeImageModal.addEventListener('click',function closeImagePopup () {
+  imagePopup.classList.toggle('popup_opened')
+})
