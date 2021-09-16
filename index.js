@@ -26,6 +26,8 @@ const popupImage = document.querySelector('.popup__image');
 const closeImageModal = document.querySelector('.popup__close_type_image-modal')
 const modalImageTitle = document.querySelector('.popup__title_type_image-modal')
 
+
+
 /*card*/
 
 
@@ -67,6 +69,12 @@ const initialCards = [{
 /**********************************************************functions*******************************************************/
 
 /**open modal*/
+
+function resetForm() {
+  cardForm.reset();  // Reset all form data
+  return false; // Prevent page refresh
+}
+
 function openPopup (popup) {
   return popup.classList.add('popup_opened');
 }
@@ -95,50 +103,6 @@ function updateProfile(event) {
 
   closePopup(profileModal);
 }
-
-function addCard(event) {
-
-  event.preventDefault();
-
-  const cardTemplate = document.querySelector('#card').content; // Template
-  const card = cardTemplate.querySelector('.card').cloneNode(true);
-  const cardContainer = document.querySelector('.elements'); // card container
-  const likeButton = card.querySelector('.card__button'); // like button
-
-  const cardImage = card.querySelector('.card__image');
-  const cardTitle =  card.querySelector('.card__title');
-
-  const cardTitleInput = document.getElementById('card-title');
-  const cardImageInput = document.getElementById('image-link');
-
-  cardTitle.textContent = `${cardTitleInput.value}`;
-  cardImage.src = `${cardImageInput.value}`;
-
-  cardContainer.prepend(card);
-
-  cardTitleInput.value = '';
-  cardImageInput.value = '';
-
-  function handleLikeClick(e) { 
-    e.target.classList.toggle('card__button_liked')
-  }
-  likeButton.addEventListener('click', handleLikeClick);
-
-  /**image button click */
-  cardImage.addEventListener("click", function () {
-    openPopup(imagePopup)
-    popupImage.src = cardImage.src
-    modalImageTitle.textContent = cardTitle.textContent
-  });
-
-
-
-  cardContainer.prepend(card);
-
-
-  closePopup(cardPopup);
-}
-
 
 
 function createCard (cardEl) {
@@ -184,7 +148,7 @@ function renderCard (cardEl, container) {
 initialCards.forEach(cardEl => renderCard (cardEl, cardContainer));
  
 
-/*event listners*/
+/**event listners*/
 form.addEventListener('submit', updateProfile, false);
 
 editButton.addEventListener("click", function () {
@@ -202,9 +166,20 @@ closeCardButton.addEventListener("click", function () {
   closePopup(cardPopup)
 });
 
-cardForm.addEventListener('submit', addCard, false);
+cardForm.addEventListener('submit', function(event) {
+  event.preventDefault()
+  const cardImage = card.querySelector('.card__image');
+  const cardTitle =  card.querySelector('.card__title');
+  const cardTitleInput = document.getElementById('card-title');
+  const cardImageInput = document.getElementById('image-link');
+  const addCard = {title: cardTitleInput.value, src: cardImageInput.value, alt: `Photo of ${cardTitleInput.value}` }
+  cardContainer.prepend(createCard(addCard))
+  closePopup(cardPopup);
+  resetForm()
+})
 closeImageModal.addEventListener('click', function closeImagePopup() {
   imagePopup.classList.toggle('popup_opened')
 })
+
 
 
