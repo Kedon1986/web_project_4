@@ -12,6 +12,7 @@ const editButton = document.querySelector(".button-edit");
 const closeButton = document.querySelector(".popup__close");
 const addButton = document.querySelector(".button-add");
 const closeCardButton = document.querySelector(".popup__close_theme_add");
+const deleteButton = document.querySelector(".card__delete-button");
 
 /*popup*/
 const profileModal = document.querySelector(".popup");
@@ -22,6 +23,7 @@ const subtitleInput = document.querySelector("#popup-about");
 const cardForm = document.querySelector(".popup__form_theme_add");
 const imagePopup = document.querySelector(".popup_type_image-modal");
 const popupImage = document.querySelector(".popup__image");
+
 const closeImageModal = document.querySelector(
   ".popup__close_type_image-modal"
 );
@@ -83,15 +85,6 @@ function closePopup(popup) {
   return popup.classList.remove("popup_opened");
 }
 
-/*Add Card*/
-
-/*remove card*/
-
-function removeCard() {
-  let card = document.querySelector(".card");
-  card.remove();
-}
-
 /*update profile*/
 function updateProfile(event) {
   event.preventDefault();
@@ -105,6 +98,7 @@ function updateProfile(event) {
 function createCard(cardEl) {
   const cardTemplate = document.querySelector("#card").content; //card emplate
   const card = cardTemplate.querySelector(".card").cloneNode(true); //card
+  const deleteButton = card.querySelector(".card__delete-button");
 
   const cardImage = card.querySelector(".card__image"); //card image reference
   const cardTitle = card.querySelector(".card__title"); //card title reference
@@ -131,6 +125,11 @@ function createCard(cardEl) {
     openPopup(imagePopup);
     popupImage.src = cardImage.src;
     modalImageTitle.textContent = cardTitle.textContent;
+  });
+
+  deleteButton.addEventListener("click", function () {
+    console.log("I was clicked");
+    card.remove();
   });
 
   return card;
