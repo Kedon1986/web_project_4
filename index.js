@@ -124,6 +124,7 @@ function createCard(cardEl) {
   cardImage.addEventListener("click", function () {
     openPopup(imagePopup);
     popupImage.src = cardImage.src;
+    popupImage.alt = `Photo of ${cardEl.title}`;
     modalImageTitle.textContent = cardTitle.textContent;
   });
 
@@ -165,15 +166,14 @@ cardForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const cardTitleInput = document.getElementById("card-title");
   const cardImageInput = document.getElementById("image-link");
-  const addCard = {
+  const addedCard = {
     title: cardTitleInput.value,
     src: cardImageInput.value,
-    alt: `Photo of ${cardTitleInput.value}`,
   };
-  cardContainer.prepend(createCard(addCard));
+  cardContainer.prepend(createCard(addedCard));
   closePopup(cardPopup);
   resetForm(); // reset form
 });
-closeImageModal.addEventListener("click", function closeImagePopup() {
-  imagePopup.classList.toggle("popup_opened");
+closeImageModal.addEventListener("click", function () {
+  closePopup(imagePopup);
 });
