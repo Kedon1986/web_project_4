@@ -128,7 +128,6 @@ function createCard(cardEl) {
   });
 
   deleteButton.addEventListener("click", function () {
-    console.log("I was clicked");
     card.remove();
   });
 
