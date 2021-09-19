@@ -37,33 +37,31 @@ const modalImageTitle = document.querySelector(
 
 const initialCards = [
   {
+    title: "McWay Falls",
+    src: "https://images.unsplash.com/photo-1432889490240-84df33d47091?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1700&q=80",
+  },
+  {
     title: "Yosemite Valley",
-    src: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+    src: "https://images.unsplash.com/photo-1569591803741-6246fbc6934c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+  },
+  {
+    title: "Arizona",
+    src: "https://images.unsplash.com/photo-1590808100071-3654286139a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
     alt: "",
   },
   {
-    title: "Lake Louise",
-    src: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+    title: "Kauai",
+    src: "https://images.unsplash.com/photo-1543248339-821db4a345a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
     alt: "",
   },
   {
-    title: "Bald Mountains",
-    src: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+    title: "Arches National Park",
+    src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
     alt: "",
   },
   {
-    title: "Latemar",
-    src: "https://code.s3.yandex.net/web-code/latemar.jpg",
-    alt: "",
-  },
-  {
-    title: "Vanoise National Park",
-    src: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-    alt: "",
-  },
-  {
-    title: "Lago di Braies",
-    src: "https://code.s3.yandex.net/web-code/lago.jpg",
+    title: "Mill Valley, CA",
+    src: "https://images.unsplash.com/photo-1431887773042-803ed52bed26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
     alt: "",
   },
 ];
