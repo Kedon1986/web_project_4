@@ -13,6 +13,7 @@ const closeButton = document.querySelector(".popup__close");
 const addButton = document.querySelector(".button-add");
 const closeCardButton = document.querySelector(".popup__close_theme_add");
 const deleteButton = document.querySelector(".card__delete-button");
+const closeModal = document.querySelector(".popup__container");
 
 /*popup*/
 const profileModal = document.querySelector(".popup");
@@ -68,6 +69,28 @@ const initialCards = [
 
 /**********************************************************functions*******************************************************/
 
+function closeModalEvent(modal) {
+  modal.addEventListener("click", (e) => {
+    e.target.classList.remove("popup_opened");
+  });
+}
+
+closeModalEvent(cardPopup);
+closeModalEvent(profileModal);
+closeModalEvent(imagePopup);
+
+function closeModalOnEsc(target) {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      target.classList.remove("popup_opened");
+    }
+  });
+}
+
+closeModalOnEsc(cardPopup);
+closeModalOnEsc(profileModal);
+closeModalOnEsc(imagePopup);
+
 function resetForm() {
   cardForm.reset(); // Reset all form data
   return false; // Prevent page refresh
@@ -78,7 +101,7 @@ function openPopup(popup) {
   return popup.classList.add("popup_opened");
 }
 /**close modal*/
-function closePopup(popup) {
+function closePopup(popup, ...args) {
   return popup.classList.remove("popup_opened");
 }
 
