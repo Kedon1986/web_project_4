@@ -44,6 +44,9 @@ const toggleButton = (inputList, submitButton, settings) => {
 const setEventListeners = (formEl, settings) => {
   const inputList = [...formEl.querySelectorAll(settings.inputSelector)];
   let submitButton = formEl.querySelectorAll(settings.submitButtonSelector);
+  submitButton.forEach((disabled) => {
+    disabled.classList.add(settings.inactiveButtonClass);
+  });
   inputList.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       //check validity

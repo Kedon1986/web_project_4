@@ -69,27 +69,15 @@ const initialCards = [
 
 /**********************************************************functions*******************************************************/
 
-function closeModalEvent(modal) {
-  modal.addEventListener("click", (e) => {
-    e.target.classList.remove("popup_opened");
-  });
+function closeModalOnClick(evt) {
+  evt.target.classList.remove("popup_opened");
 }
 
-closeModalEvent(cardPopup);
-closeModalEvent(profileModal);
-closeModalEvent(imagePopup);
-
-function closeModalOnEsc(target) {
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      target.classList.remove("popup_opened");
-    }
-  });
+function closeModalOnEscape(evt) {
+  if (evt.key === "Escape") {
+    return closePopup(document.querySelector(".popup_opened"));
+  }
 }
-
-closeModalOnEsc(cardPopup);
-closeModalOnEsc(profileModal);
-closeModalOnEsc(imagePopup);
 
 function resetForm() {
   cardForm.reset(); // Reset all form data
@@ -98,10 +86,14 @@ function resetForm() {
 /**open modal*/
 
 function openPopup(popup) {
+  document.addEventListener("click", closeModalOnClick);
+  document.addEventListener("keydown", closeModalOnEscape);
   return popup.classList.add("popup_opened");
 }
 /**close modal*/
-function closePopup(popup, ...args) {
+function closePopup(popup) {
+  document.removeEventListener("click", closeModalOnClick);
+  document.removeEventListener("keydown", closeModalOnEscape);
   return popup.classList.remove("popup_opened");
 }
 
