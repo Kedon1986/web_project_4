@@ -59,7 +59,9 @@ const setEventListeners = (formEl, settings) => {
 
 /**enable validation */
 const enableValidation = (settings) => {
+  //select all forms
   const formElements = [...document.querySelectorAll(settings.formSelector)];
+  //prevent default on each submit
   formElements.forEach((formEl) => {
     formEl.addEventListener("submit", (event) => event.preventDefault());
     setEventListeners(formEl, settings);
