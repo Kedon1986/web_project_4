@@ -1,10 +1,10 @@
+import Card from "./card.js";
+
 const profiletName = document.querySelector(".profile__name");
 const profileAboutMe = document.querySelector(".profile__about-me");
 
 /*CARD Template*/
 
-const cardTemplate = document.querySelector("#card").content; // Template
-const card = cardTemplate.querySelector(".card").cloneNode(true);
 const cardContainer = document.querySelector(".elements"); // card container
 
 /*buttons*/
@@ -107,49 +107,50 @@ function updateProfile(event) {
   closePopup(profileModal);
 }
 
-function createCard(cardEl) {
-  const cardTemplate = document.querySelector("#card").content; //card emplate
-  const card = cardTemplate.querySelector(".card").cloneNode(true); //card
-  const deleteButton = card.querySelector(".card__delete-button");
+// function createCard(cardEl) {
+//   const cardTemplate = document.querySelector("#card").content; //card emplate
+//   const card = cardTemplate.querySelector(".card").cloneNode(true); //card
+//   const deleteButton = card.querySelector(".card__delete-button");
 
-  const cardImage = card.querySelector(".card__image"); //card image reference
-  const cardTitle = card.querySelector(".card__title"); //card title reference
+//   const cardImage = card.querySelector(".card__image"); //card image reference
+//   const cardTitle = card.querySelector(".card__title"); //card title reference
 
-  const likeButton = card.querySelector(".card__button"); // like button
+//   const likeButton = card.querySelector(".card__button"); // like button
 
-  const modalImageTitle = document.querySelector(
-    ".popup__title_type_image-modal"
-  );
-  const imagePopup = document.querySelector(".popup_type_image-modal");
+//   const modalImageTitle = document.querySelector(
+//     ".popup__title_type_image-modal"
+//   );
+//   const imagePopup = document.querySelector(".popup_type_image-modal");
 
-  cardImage.src = cardEl.src; // card image
-  cardTitle.textContent = cardEl.title; // card title
-  cardImage.alt = `Photo of ${cardEl.title}`; // image description
+//   cardImage.src = cardEl.src; // card image
+//   cardTitle.textContent = cardEl.title; // card title
+//   cardImage.alt = `Photo of ${cardEl.title}`; // image description
 
-  /**like button click */
-  function handleLikeClick(e) {
-    e.target.classList.toggle("card__button_liked");
-  }
-  likeButton.addEventListener("click", handleLikeClick);
+//   /**like button click */
+//   function handleLikeClick(e) {
+//     e.target.classList.toggle("card__button_liked");
+//   }
+//   likeButton.addEventListener("click", handleLikeClick);
 
-  /**image button click */
-  cardImage.addEventListener("click", function () {
-    openPopup(imagePopup);
-    popupImage.src = cardImage.src;
-    popupImage.alt = `Photo of ${cardEl.title}`;
-    modalImageTitle.textContent = cardTitle.textContent;
-  });
+//   /**image button click */
+//   cardImage.addEventListener("click", function () {
+//     openPopup(imagePopup);
+//     popupImage.src = cardImage.src;
+//     popupImage.alt = `Photo of ${cardEl.title}`;
+//     modalImageTitle.textContent = cardTitle.textContent;
+//   });
 
-  deleteButton.addEventListener("click", function () {
-    card.remove();
-  });
+//   deleteButton.addEventListener("click", function () {
+//     card.remove();
+//   });
 
-  return card;
-}
+//   return card;
+// }
 
 function renderCard(cardEl, container) {
   /** Takes a cardEl and appends to card container */
-  container.append(createCard(cardEl));
+  const card = new Card(cardEl, "#card").generateCard();
+  container.append(card);
 }
 
 /** for each card element in [initialCards], call function renderCard and append each cardEl to cardContainer */
@@ -158,11 +159,11 @@ initialCards.forEach((cardEl) => renderCard(cardEl, cardContainer));
 /**event listners*/
 form.addEventListener("submit", updateProfile, false);
 
-editButton.addEventListener("click", function () {
-  openPopup(profileModal);
-  titleInput.value = profiletName.textContent;
-  subtitleInput.value = profileAboutMe.textContent;
-});
+// editButton.addEventListener("click", function () {
+//   openPopup(profileModal);
+//   titleInput.value = profiletName.textContent;
+//   subtitleInput.value = profileAboutMe.textContent;
+// });
 closeButton.addEventListener("click", function () {
   closePopup(profileModal);
 });
