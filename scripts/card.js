@@ -6,18 +6,6 @@ class Card {
     this._cardSelector = cardSelector;
   }
 
-  _handleOpenModal(modal) {
-    // document.addEventListener("click", closeModalOnClick);
-    // document.addEventListener("keydown", closeModalOnEscape);
-    return modal.classList.add("popup_opened");
-  }
-
-  _handleCloseModal(modal) {
-    // document.addEventListener("click", closeModalOnClick);
-    // document.addEventListener("keydown", closeModalOnEscape);
-    return modal.classList.add("popup_opened");
-  }
-
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
@@ -34,8 +22,23 @@ class Card {
   }
 
   _handleDeleteCard() {
-    const cardElement = document.querySelector(".card");
-    cardElement.remove();
+    this._element.remove();
+  }
+
+  _handlePreviewPicture() {
+    const popupImage = document.querySelector(".popup__image");
+    const modalImageTitle = document.querySelector(
+      ".popup__title_type_image-modal"
+    );
+    document
+      .querySelector(".popup_type_image-modal")
+      .classList.toggle("popup_opened");
+    popupImage.src = this._element.querySelector(".card__image").src;
+    popupImage.alt = `Photo of ${
+      this._element.querySelector(".card__title").textContent
+    }`;
+    modalImageTitle.textContent =
+      this._element.querySelector(".card__title").textContent;
   }
 
   _setEventListeners() {
@@ -44,24 +47,21 @@ class Card {
       .querySelector(".card__button")
       .addEventListener("click", () => {
         this._handleLikeButton();
-        console.log("working");
       });
     /**delete card */
     this._element
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
-        console.log(this.card);
       });
-
-    document.querySelector(".button-edit").addEventListener("click", () => {
-      const profileModal = document.querySelector(".popup");
-      _handleOpenModal(profileModal);
-      // titleInput.value = profiletName.textContent;
-      // subtitleInput.value = profileAboutMe.textContent;
-    });
+    /**Image Popup */
+    this._element
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handlePreviewPicture();
+      });
   }
-
+  /** generate initial cards */
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();
@@ -70,6 +70,15 @@ class Card {
     this._element.querySelector(".card__title").textContent = this._title;
 
     return this._element;
+  }
+}
+
+class newCard extends Card {
+  constructor() {}
+  /**generate new card */
+  generateNewCard() {
+    super._getTemplate();
+    super._setEventListeners();
   }
 }
 
