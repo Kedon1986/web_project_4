@@ -73,13 +73,4 @@ class Card {
   }
 }
 
-class newCard extends Card {
-  constructor() {}
-  /**generate new card */
-  generateNewCard() {
-    super._getTemplate();
-    super._setEventListeners();
-  }
-}
-
 export default Card;

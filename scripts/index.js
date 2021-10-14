@@ -1,4 +1,5 @@
-import Card from "./card.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 const profiletName = document.querySelector(".profile__name");
 const profileAboutMe = document.querySelector(".profile__about-me");
@@ -159,3 +160,22 @@ cardForm.addEventListener("submit", function (event) {
 closeImageModal.addEventListener("click", function () {
   closePopup(imagePopup);
 });
+
+/** Validation  */
+
+const addFormEl = document.querySelector("#card-form");
+const editFormEl = document.querySelector("#edit-form");
+
+const formValidationConfig = {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+const addFormValidator = new FormValidator(formValidationConfig, addFormEl);
+addFormValidator.enableValidation();
+
+const editFormValidator = new FormValidator(formValidationConfig, editFormEl);
+editFormValidator.enableValidation();
