@@ -36,18 +36,16 @@ class FormValidator {
   }
 
   _toggleButton(inputList, submitButton) {
-    submitButton.forEach((disabled) => {
-      if (this._hasInvalidInput(inputList)) {
-        submitButton.disabled = false;
-        disabled.classList.remove(this._inactiveButtonClass);
-      } else {
-        submitButton.disabled = true;
-        disabled.classList.add(this._inactiveButtonClass);
-      }
-    });
+    if (this._hasValidInput(inputList)) {
+      submitButton.disabled = false;
+      submitButton.classList.remove(this._inactiveButtonClass);
+    } else {
+      submitButton.disabled = true;
+      disabled.classList.add(this._inactiveButtonClass);
+    }
   }
 
-  _hasInvalidInput(inputList) {
+  _hasValidInput(inputList) {
     let isValid = true;
     inputList.forEach((input) => {
       if (!input.validity.valid) {
@@ -61,12 +59,12 @@ class FormValidator {
     const inputList = [
       ...this._formElement.querySelectorAll(this._inputSelector),
     ];
-    let submitButton = this._formElement.querySelectorAll(
+    let submitButton = this._formElement.querySelector(
       this._submitButtonSelector
     );
-    submitButton.forEach((disabled) => {
-      disabled.classList.add(this._inactiveButtonClass);
-    });
+
+    submitButton.classList.add(this._inactiveButtonClass);
+
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", (e) => {
         //check validity

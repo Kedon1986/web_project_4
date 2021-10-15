@@ -69,40 +69,43 @@ const initialCards = [
 
 /**********************************************************functions*******************************************************/
 
-function closeModalEvent(modal) {
-  modal.addEventListener("click", (e) => {
-    e.target.classList.remove("popup_opened");
-  });
+function closeModalOnClick(evt) {
+  evt.target.classList.remove("popup_opened");
+  console.log("clicked");
 }
 
-closeModalEvent(cardPopup);
-closeModalEvent(profileModal);
-closeModalEvent(imagePopup);
-
-function closeModalOnEsc(target) {
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      target.classList.remove("popup_opened");
-    }
-  });
+function closeModalOnEscape(evt) {
+  if (evt.key === "Escape") {
+    closePopup(document.querySelector(".popup_opened"));
+  }
 }
-
-closeModalOnEsc(cardPopup);
-closeModalOnEsc(profileModal);
-closeModalOnEsc(imagePopup);
 
 function resetForm() {
   cardForm.reset(); // Reset all form data
+
   return false; // Prevent page refresh
 }
+
 /**open modal*/
 
 function openPopup(popup) {
-  return popup.classList.add("popup_opened");
+  document.addEventListener("click", closeModalOnClick);
+
+  document.addEventListener("keydown", closeModalOnEscape);
+
+  popup.classList.add("popup_opened");
 }
+
 /**close modal*/
-function closePopup(popup, ...args) {
-  return popup.classList.remove("popup_opened");
+
+function closePopup(popup) {
+  document.removeEventListener("click", closeModalOnClick);
+
+  document.removeEventListener("keydown", closeModalOnEscape);
+
+  //document.addEventListener(click);
+
+  popup.classList.remove("popup_opened");
 }
 
 /*update profile*/
@@ -142,6 +145,10 @@ closeCardButton.addEventListener("click", function () {
   closePopup(cardPopup);
 });
 
+closeImageModal.addEventListener("click", function () {
+  closePopup(imagePopup);
+});
+
 /**event listener for creating new card */
 cardForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -155,10 +162,6 @@ cardForm.addEventListener("submit", function (event) {
   renderCard(addedCard, cardContainer);
   closePopup(cardPopup);
   resetForm(); // reset form
-});
-
-closeImageModal.addEventListener("click", function () {
-  closePopup(imagePopup);
 });
 
 /** Validation  */

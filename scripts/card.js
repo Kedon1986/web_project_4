@@ -1,3 +1,8 @@
+const popupImage = document.querySelector(".popup__image");
+const modalImageTitle = document.querySelector(
+  ".popup__title_type_image-modal"
+);
+
 class Card {
   constructor(data, cardSelector) {
     this._title = data.title;
@@ -26,10 +31,6 @@ class Card {
   }
 
   _handlePreviewPicture() {
-    const popupImage = document.querySelector(".popup__image");
-    const modalImageTitle = document.querySelector(
-      ".popup__title_type_image-modal"
-    );
     document
       .querySelector(".popup_type_image-modal")
       .classList.toggle("popup_opened");
