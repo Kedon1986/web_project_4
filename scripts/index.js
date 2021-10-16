@@ -99,8 +99,6 @@ function openPopup(popup) {
 function closePopup(popup) {
   document.removeEventListener("keydown", closeModalOnEscape);
 
-  //document.addEventListener(click);
-
   popup.classList.remove("popup_opened");
 }
 

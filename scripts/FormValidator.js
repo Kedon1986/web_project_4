@@ -36,7 +36,7 @@ class FormValidator {
   }
 
   _toggleButton(inputList, submitButton) {
-    if (this._inputIsValid(inputList)) {
+    if (this._checkAllInputsValid(inputList)) {
       submitButton.disabled = false;
       submitButton.classList.remove(this._inactiveButtonClass);
     } else {
@@ -45,7 +45,7 @@ class FormValidator {
     }
   }
 
-  _inputIsValid(inputList) {
+  _checkAllInputsValid(inputList) {
     let isValid = true;
     inputList.forEach((input) => {
       if (!input.validity.valid) {
