@@ -69,6 +69,7 @@ class Card {
 
     this._element.querySelector(".card__image").src = this._src;
     this._element.querySelector(".card__title").textContent = this._title;
+    this._element.querySelector(".card__image").alt = `Photo of ${this._title}`;
 
     return this._element;
   }

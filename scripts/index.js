@@ -89,8 +89,6 @@ function resetForm() {
 /**open modal*/
 
 function openPopup(popup) {
-  document.addEventListener("click", closeModalOnClick);
-
   document.addEventListener("keydown", closeModalOnEscape);
 
   popup.classList.add("popup_opened");
@@ -99,8 +97,6 @@ function openPopup(popup) {
 /**close modal*/
 
 function closePopup(popup) {
-  document.removeEventListener("click", closeModalOnClick);
-
   document.removeEventListener("keydown", closeModalOnEscape);
 
   //document.addEventListener(click);
