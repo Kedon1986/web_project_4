@@ -3,6 +3,50 @@ const modalImageTitle = document.querySelector(
   ".popup__title_type_image-modal"
 );
 
+const closeImageModal = document.querySelector(
+  ".popup__close_type_image-modal"
+);
+
+function closeModalOnClick(evt) {
+  evt.target.classList.remove("popup_opened");
+}
+
+function closeModalOnEscape(evt) {
+  if (evt.key === "Escape") {
+    return closePopup(document.querySelector(".popup_opened"));
+  }
+}
+
+function resetForm() {
+  cardForm.reset(); // Reset all form data
+  return false; // Prevent page refresh
+}
+/**open modal*/
+
+/**close modal*/
+
+/**open modal*/
+
+function openPopup(popup) {
+  document.addEventListener("click", closeModalOnClick);
+
+  document.addEventListener("keydown", closeModalOnEscape);
+
+  popup.classList.add("popup_opened");
+}
+
+/**close modal*/
+
+function closePopup(popup) {
+  document.removeEventListener("click", closeModalOnClick);
+
+  document.removeEventListener("keydown", closeModalOnEscape);
+
+  //document.addEventListener(click);
+
+  popup.classList.remove("popup_opened");
+}
+
 class Card {
   constructor(data, cardSelector) {
     this._title = data.title;

@@ -15,6 +15,8 @@ const editButton = document.querySelector(".button-edit");
 const closeButton = document.querySelector(".popup__close");
 const addButton = document.querySelector(".button-add");
 const closeCardButton = document.querySelector(".popup__close_theme_add");
+const deleteButton = document.querySelector(".card__delete-button");
+const closeModal = document.querySelector(".popup__container");
 
 /*popup*/
 const profileModal = document.querySelector(".popup");
@@ -24,6 +26,7 @@ const titleInput = document.querySelector("#input-name");
 const subtitleInput = document.querySelector("#input-about");
 const cardForm = document.querySelector(".popup__form_theme_add");
 const imagePopup = document.querySelector(".popup_type_image-modal");
+const popupImage = document.querySelector(".popup__image");
 
 const closeImageModal = document.querySelector(
   ".popup__close_type_image-modal"
@@ -71,37 +74,31 @@ const initialCards = [
 
 function closeModalOnClick(evt) {
   evt.target.classList.remove("popup_opened");
-  console.log("clicked");
 }
 
 function closeModalOnEscape(evt) {
   if (evt.key === "Escape") {
-    closePopup(document.querySelector(".popup_opened"));
+    return closePopup(document.querySelector(".popup_opened"));
   }
 }
 
 function resetForm() {
   cardForm.reset(); // Reset all form data
-
   return false; // Prevent page refresh
 }
-
 /**open modal*/
 
 function openPopup(popup) {
+  document.addEventListener("click", closeModalOnClick);
   document.addEventListener("keydown", closeModalOnEscape);
-
-  popup.classList.add("popup_opened");
+  return popup.classList.add("popup_opened");
 }
-
 /**close modal*/
-
 function closePopup(popup) {
+  document.removeEventListener("click", closeModalOnClick);
   document.removeEventListener("keydown", closeModalOnEscape);
-
-  popup.classList.remove("popup_opened");
+  return popup.classList.remove("popup_opened");
 }
-
 /*update profile*/
 function updateProfile(event) {
   event.preventDefault();
