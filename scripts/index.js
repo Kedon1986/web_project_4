@@ -72,13 +72,15 @@ const initialCards = [
 
 /**********************************************************functions*******************************************************/
 
-function closeModalOnClick(evt) {
-  evt.target.classList.remove("popup_opened");
-}
-
 function closeModalOnEscape(evt) {
   if (evt.key === "Escape") {
     return closePopup(document.querySelector(".popup_opened"));
+  }
+}
+
+function closeModalOnClick(evt) {
+  if (evt.target.classList.contains("popup")) {
+    closePopup(document.querySelector(".popup_opened"));
   }
 }
 

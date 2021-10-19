@@ -8,7 +8,9 @@ const closeImageModal = document.querySelector(
 );
 
 function closeModalOnClick(evt) {
-  evt.target.classList.remove("popup_opened");
+  if (evt.target.classList.contains("popup")) {
+    closePopup(document.querySelector(".popup_opened"));
+  }
 }
 
 function closeModalOnEscape(evt) {
@@ -74,10 +76,9 @@ class Card {
     this._element.remove();
   }
 
-  _handlePreviewPicture() {
-    document
-      .querySelector(".popup_type_image-modal")
-      .classList.toggle("popup_opened");
+  _handlePreviewPicture(evt) {
+    const currentPic = document.querySelector(".popup_type_image-modal");
+    openPopup(currentPic);
     popupImage.src = this._element.querySelector(".card__image").src;
     popupImage.alt = `Photo of ${
       this._element.querySelector(".card__title").textContent
