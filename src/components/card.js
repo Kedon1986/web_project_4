@@ -1,23 +1,4 @@
-const popupImage = document.querySelector(".popup__image");
-const modalImageTitle = document.querySelector(
-  ".popup__title_type_image-modal"
-);
-
-const closeImageModal = document.querySelector(
-  ".popup__close_type_image-modal"
-);
-
-function closeModalOnClick(evt) {
-  if (evt.target.classList.contains("popup")) {
-    closePopup(document.querySelector(".popup_opened"));
-  }
-}
-
-function closeModalOnEscape(evt) {
-  if (evt.key === "Escape") {
-    return closePopup(document.querySelector(".popup_opened"));
-  }
-}
+import PopupWithImage from "./PopupWithImage.js";
 
 function resetForm() {
   cardForm.reset(); // Reset all form data
@@ -25,36 +6,11 @@ function resetForm() {
 }
 /**open modal*/
 
-/**close modal*/
-
-/**open modal*/
-
-function openPopup(popup) {
-  document.addEventListener("click", closeModalOnClick);
-
-  document.addEventListener("keydown", closeModalOnEscape);
-
-  popup.classList.add("popup_opened");
-}
-
-/**close modal*/
-
-function closePopup(popup) {
-  document.removeEventListener("click", closeModalOnClick);
-
-  document.removeEventListener("keydown", closeModalOnEscape);
-
-  //document.addEventListener(click);
-
-  popup.classList.remove("popup_opened");
-}
-
 class Card {
   constructor(data, cardSelector) {
     this._title = data.title;
-    this._src = data.src;
-
     this._cardSelector = cardSelector;
+    this._src = data.src;
   }
 
   _getTemplate() {
@@ -76,15 +32,8 @@ class Card {
     this._element.remove();
   }
 
-  _handlePreviewPicture(evt) {
-    const currentPic = document.querySelector(".popup_type_image-modal");
-    openPopup(currentPic);
-    popupImage.src = this._element.querySelector(".card__image").src;
-    popupImage.alt = `Photo of ${
-      this._element.querySelector(".card__title").textContent
-    }`;
-    modalImageTitle.textContent =
-      this._element.querySelector(".card__title").textContent;
+  _handlePreviewPicture() {
+    new PopupWithImage(".popup_type_image-modal").open();
   }
 
   _setEventListeners() {

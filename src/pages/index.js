@@ -2,9 +2,8 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import Popup from "../components/Popup.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
-const editModal = new Popup(".popup");
-editModal.open();
 //editModal.close();
 const profiletName = document.querySelector(".profile__name");
 const profileAboutMe = document.querySelector(".profile__about-me");
@@ -77,35 +76,11 @@ const initialCards = [
 
 /**********************************************************functions*******************************************************/
 
-function closeModalOnEscape(evt) {
-  if (evt.key === "Escape") {
-    return closePopup(document.querySelector(".popup_opened"));
-  }
-}
-
-function closeModalOnClick(evt) {
-  if (evt.target.classList.contains("popup")) {
-    closePopup(document.querySelector(".popup_opened"));
-  }
-}
-
 function resetForm() {
   cardForm.reset(); // Reset all form data
   return false; // Prevent page refresh
 }
-/**open modal*/
 
-// function openPopup(popup) {
-//   document.addEventListener("click", closeModalOnClick);
-//   document.addEventListener("keydown", closeModalOnEscape);
-//   return popup.classList.add("popup_opened");
-// }
-// /**close modal*/
-// function closePopup(popup) {
-//   document.removeEventListener("click", closeModalOnClick);
-//   document.removeEventListener("keydown", closeModalOnEscape);
-//   return popup.classList.remove("popup_opened");
-// }
 /*update profile*/
 function updateProfile(event) {
   event.preventDefault();
@@ -116,36 +91,30 @@ function updateProfile(event) {
   closePopup(profileModal);
 }
 
-// function renderCard(cardEl, container) {
-//   /** Takes a cardEl and appends to card container */
-//   const card = new Card(cardEl, "#card").generateCard();
-//   container.prepend(card);
-// }
+/** open profile Modal */
+const editProfileModal = new Popup(".popup");
+editProfileModal.setEventListeners();
 
-/** for each card element in [initialCards], call function renderCard and append each cardEl to cardContainer */
-// initialCards.forEach((cardEl) => renderCard(cardEl, cardContainer));
+/** open add-card Modal */
+const addCardModal = new Popup(".popup_theme_add");
+addCardModal.setEventListeners();
+addButton.addEventListener("click", function () {
+  addCardModal.open();
+});
 
 /**event listners*/
+
 form.addEventListener("submit", updateProfile, false);
 
-// editButton.addEventListener("click", function () {
-//   openPopup(profileModal);
-//   titleInput.value = profiletName.textContent;
-//   subtitleInput.value = profileAboutMe.textContent;
-// });
-// closeButton.addEventListener("click", function () {
-//   closePopup(profileModal);
-// });
-// addButton.addEventListener("click", function () {
-//   openPopup(cardPopup);
-// });
-// closeCardButton.addEventListener("click", function () {
-//   closePopup(cardPopup);
-// });
+editButton.addEventListener("click", function () {
+  editProfileModal.open();
+  titleInput.value = profiletName.textContent;
+  subtitleInput.value = profileAboutMe.textContent;
+});
 
-// closeImageModal.addEventListener("click", function () {
-//   closePopup(imagePopup);
-// });
+addButton.addEventListener("click", function () {
+  addCardModal.open();
+});
 
 /**event listener for creating new card */
 cardForm.addEventListener("submit", function (event) {
