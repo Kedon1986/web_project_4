@@ -33,7 +33,10 @@ class Card {
   }
 
   _handlePreviewPicture() {
-    new PopupWithImage(".popup_type_image-modal").open();
+    new PopupWithImage(".popup_type_image-modal").open({
+      link: this._src,
+      name: this._title,
+    });
   }
 
   _setEventListeners() {

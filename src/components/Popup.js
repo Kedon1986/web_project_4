@@ -1,10 +1,11 @@
 class Popup {
   constructor(popupSelector) {
     this._popupSelector = document.querySelector(popupSelector);
+    this._closeModalOnEscape = this._closeModalOnEscape.bind(this);
   }
   _closeModalOnEscape(evt) {
     if (evt.key === "Escape") {
-      console.log("escaped!");
+      console.log(this);
       return this.close();
     }
   }
